@@ -1,0 +1,151 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 59.8661
+  longitude: 10.4906
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 6
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Oslo
+  # Customization file
+  customize: !include customize.yaml
+
+# log everything
+# logger:
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  ssl_certificate: /etc/letsencrypt/live/tormodwien.org/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/tormodwien.org/privkey.pem 
+  base_url: tormodwien.org
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+# zwave
+zwave:
+  usb_path: /dev/ttyACM0
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+light:
+  - platform: mqtt
+    name: "Kitchen"
+#    state_topic: "xcomfort/0/get/switch"
+    command_topic: "xcomfort/1/set/switch"
+#    brightness_state_topic: 'xcomfort/1/get/dimmer'
+    brightness_command_topic: 'xcomfort/1/set/dimmer'
+#    brightness_scale: 101
+    qos: 0 
+    payload_on: "true"
+    payload_off: "false"
+    optimistic: true
+    on_command_type: brightness 
+    retain: true
+
+  - platform: mqtt
+    name: "Living room"
+#    state_topic: "xcomfort/0/get/switch"
+    command_topic: "xcomfort/2/set/switch"
+#    brightness_state_topic: 'xcomfort/2/get/dimmer'
+    brightness_command_topic: 'xcomfort/2/set/dimmer'
+#    brightness_scale: 101
+    qos: 0 
+    payload_on: "true"
+    payload_off: "false"
+    optimistic: true
+    on_command_type: brightness 
+    retain: true
+  
+  - platform: mqtt
+    name: "Workbench"
+#    state_topic: "xcomfort/0/get/switch"
+    command_topic: "xcomfort/3/set/switch"
+#    brightness_state_topic: 'xcomfort/3/get/dimmer'
+    brightness_command_topic: 'xcomfort/3/set/dimmer'
+#    brightness_scale: 101
+    qos: 0 
+    payload_on: "true"
+    payload_off: "false"
+    optimistic: true
+    on_command_type: brightness 
+    retain: true
+
+
+
+  - platform: x10
+    devices:
+      - id: a2
+        name: Soverom 
+
+      - id: a3
+        name: TV-stue
+
+      - id: a4
+        name: Gang
+  
+google_assistant:
+  project_id: tormods-home-control 
+  client_id: !secret client_id 
+  access_token: !secret access_token 
+  agent_user_id: tormodwien@gmail.com 
+  api_key: !secret api_key 
+  exposed_domains:
+    - switch
+    - light
+    - group
+
+
+mqtt:
+  broker: 10.0.0.201
