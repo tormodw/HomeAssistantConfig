@@ -86,7 +86,7 @@ light:
     command_topic: "xcomfort/1/set/switch"
 #    brightness_state_topic: 'xcomfort/1/get/dimmer'
     brightness_command_topic: 'xcomfort/1/set/dimmer'
-#    brightness_scale: 101
+    brightness_scale: 100
     qos: 0 
     payload_on: "true"
     payload_off: "false"
@@ -100,7 +100,7 @@ light:
     command_topic: "xcomfort/2/set/switch"
 #    brightness_state_topic: 'xcomfort/2/get/dimmer'
     brightness_command_topic: 'xcomfort/2/set/dimmer'
-#    brightness_scale: 101
+    brightness_scale: 100
     qos: 0 
     payload_on: "true"
     payload_off: "false"
@@ -114,11 +114,11 @@ light:
     command_topic: "xcomfort/3/set/switch"
 #    brightness_state_topic: 'xcomfort/3/get/dimmer'
     brightness_command_topic: 'xcomfort/3/set/dimmer'
-#    brightness_scale: 101
+    brightness_scale: 100
     qos: 0 
     payload_on: "true"
     payload_off: "false"
-    optimistic: true
+#    optimistic: true
     on_command_type: brightness 
     retain: true
 
@@ -148,4 +148,19 @@ google_assistant:
 
 
 mqtt:
-  broker: 10.0.0.201
+  broker: 192.168.86.169
+
+media_player:
+  - platform: denon
+    host: 192.168.86.187
+
+  - platform: samsungtv
+    host: 192.168.86.176
+    name: Samsung TV TV-stuen
+
+  - platform: cast
+
+  - platform: plex
+
+sensor:
+  - platform: google_wifi
