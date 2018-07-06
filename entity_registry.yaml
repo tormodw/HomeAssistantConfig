@@ -1,0 +1,228 @@
+media_player.kjellerstue:
+  name:
+  platform: cast
+  unique_id: 91cb2f54-6e0e-e9a0-3933-0621e804fe9c
+media_player.living_room_home:
+  name:
+  platform: cast
+  unique_id: 9e608f3d-fbae-6a1d-7a89-e8e687d02e10
+media_player.googlehome9855:
+  name:
+  platform: cast
+  unique_id: 2eef3ad9-1060-8daf-a38e-fc776e23be5b
+light.level:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076299265
+sensor.unknown:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076495874
+light.aeotec_zw099_smart_dimmer_6_level:
+  name:
+  platform: zwave
+  unique_id: 2-144115188114227201
+sensor.aeotec_zw099_smart_dimmer_6_power:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076496002
+sensor.aeotec_zw099_smart_dimmer_6_voltage:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076496130
+sensor.aeotec_zw099_smart_dimmer_6_current:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076496194
+light.level_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093076481
+sensor.unknown_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093273090
+switch.aeotec_zw099_smart_dimmer_6_switch:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093060096
+light.aeotec_zw099_smart_dimmer_6_level_2:
+  name:
+  platform: zwave
+  unique_id: 3-144115188131004417
+sensor.aeotec_zw099_smart_dimmer_6_power_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093273218
+sensor.aeotec_zw099_smart_dimmer_6_voltage_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093273346
+sensor.aeotec_zw099_smart_dimmer_6_current_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093273410
+sensor.aeotec_zw099_smart_dimmer_6_previous_reading:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093273106
+light.level_3:
+  name: Dining room table
+  platform: zwave
+  unique_id: 4-72057594109853697
+sensor.unknown_3:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110050306
+light.aeotec_zw099_smart_dimmer_6_level_3:
+  name:
+  platform: zwave
+  unique_id: 4-144115188147781633
+sensor.aeotec_zw099_smart_dimmer_6_power_3:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110050434
+sensor.aeotec_zw099_smart_dimmer_6_voltage_3:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110050562
+sensor.aeotec_zw099_smart_dimmer_6_current_3:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110050626
+sensor.aeotec_zw099_smart_dimmer_6_previous_reading_2:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110050322
+light.level_4:
+  name: Spot over sofa
+  platform: zwave
+  unique_id: 5-72057594126630913
+sensor.unknown_4:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126827522
+light.aeotec_zw099_smart_dimmer_6_level_4:
+  name:
+  platform: zwave
+  unique_id: 5-144115188164558849
+sensor.aeotec_zw099_smart_dimmer_6_power_4:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126827650
+sensor.aeotec_zw099_smart_dimmer_6_voltage_4:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126827778
+sensor.aeotec_zw099_smart_dimmer_6_current_4:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126827842
+sensor.aeotec_zw099_smart_dimmer_6_previous_reading_3:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126827538
+sensor.tormod_sin_iphone_battery_state:
+  name:
+  platform: ios
+  unique_id: state_tormod_sin_iphone
+sensor.tormod_sin_iphone_battery_level:
+  name:
+  platform: ios
+  unique_id: level_tormod_sin_iphone
+zwave.aeotec_zw090_zstick_gen5_eu:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.aeotec_zw099_smart_dimmer_6:
+  name:
+  platform: zwave
+  unique_id: node-3
+zwave.aeotec_zw099_smart_dimmer_6_2:
+  name:
+  platform: zwave
+  unique_id: node-4
+zwave.aeotec_zw099_smart_dimmer_6_3:
+  name:
+  platform: zwave
+  unique_id: node-5
+media_player.roku_13c1ae132832:
+  name:
+  platform: roku
+  unique_id: 13C1AE132832
+sensor.tormod_sin_ipad_battery_level:
+  name:
+  platform: ios
+  unique_id: level_tormod_sin_ipad
+sensor.tormod_sin_ipad_battery_state:
+  name:
+  platform: ios
+  unique_id: state_tormod_sin_ipad
+sensor.i3_94_remaining_range_total:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-remaining_range_total
+binary_sensor.i3_94_connection_status:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-connection_status
+sensor.i3_94_charging_status:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-charging_status
+binary_sensor.i3_94_lids:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-lids
+lock.i3_94_lock:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-lock
+sensor.i3_94_max_range_electric:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-max_range_electric
+binary_sensor.i3_94_door_lock_state:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-door_lock_state
+sensor.i3_94_charging_level_hv:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-charging_level_hv
+binary_sensor.i3_94_lights_parking:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-lights_parking
+sensor.i3_94_mileage:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-mileage
+binary_sensor.i3_94_check_control_messages:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-check_control_messages
+sensor.i3_94_charging_time_remaining:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-charging_time_remaining
+binary_sensor.i3_94_condition_based_services:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-condition_based_services
+binary_sensor.i3_94_charging_status:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-charging_status
+binary_sensor.i3_94_windows:
+  name:
+  platform: bmw_connected_drive
+  unique_id: WBY1Z6103HV937966-windows
+zwave.aeotec_dsa03202_minimote:
+  name:
+  platform: zwave
+  unique_id: node-6
+media_player.cellar_speaker:
+  name:
+  platform: cast
+  unique_id: 592480c3-e210-382e-c67c-3e3aeec676e0

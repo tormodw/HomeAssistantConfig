@@ -1,1 +1,140 @@
-[]
+  - id: minimote_1_button_sp 
+    alias: 'Minimote Button 1 Pressed'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeotec_dsa03202_minimote
+          scene_id: 1
+    action:
+      - service: light.turn_on
+        data: 
+          entity_id: light.level_2
+          brightness: 240
+          transition: 1
+
+  - id: minimote_1_button_lp 
+    alias: 'Minimote Button 1 Held'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeotec_dsa03202_minimote
+          scene_id: 2
+    action:
+      - service: light.turn_off
+        data: 
+          entity_id: light.level_2
+          transition: 1
+
+  - id: minimote_2_button_sp 
+    alias: 'Minimote Button 2 Pressed'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeotec_dsa03202_minimote
+          scene_id: 3
+    action:
+      - service: light.turn_on
+        data: 
+          entity_id: light.level_3
+          brightness: 128 
+          transition: 1
+
+  - id: minimote_2_button_lp 
+    alias: 'Minimote Button 2 Held'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeotec_dsa03202_minimote
+          scene_id: 4
+    action:
+      - service: light.turn_off
+        data: 
+          entity_id: light.level_3
+          transition: 1
+
+
+  - id: minimote_3_button_sp 
+    alias: 'Minimote Button 3 Pressed'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeotec_dsa03202_minimote
+          scene_id: 5
+    action:
+      - service: light.turn_on
+        data: 
+          entity_id: light.level_4
+          brightness: 128 
+          transition: 1
+
+  - id: minimote_3_button_lp 
+    alias: 'Minimote Button 3 Held'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeotec_dsa03202_minimote
+          scene_id: 6
+    action:
+      - service: light.turn_off
+        data: 
+          entity_id: light.level_4
+          transition: 1
+
+  - id: minimote_4_button_sp 
+    alias: 'Minimote Button 4 Pressed'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeotec_dsa03202_minimote
+          scene_id: 7
+    action:
+      - service: light.turn_on
+        data: 
+          entity_id: 
+            - light.kitchen
+            - light.workbench
+            - light.living_room
+          brightness: 240
+          transition: 1
+
+  - id: minimote_4_button_lp 
+    alias: 'Minimote Button 4 Held'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeotec_dsa03202_minimote
+          scene_id: 8
+    action:
+      - service: light.turn_off
+        data: 
+          entity_id: 
+            - light.kitchen
+            - light.workbench
+            - light.living_room
+          transition: 1
+
+

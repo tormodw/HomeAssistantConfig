@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 59.8661
-  longitude: 10.4906
+  latitude: !secret latitude 
+  longitude: !secret longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 6
   # metric for Metric, imperial for Imperial
@@ -29,9 +29,9 @@ http:
   # Secrets are defined in the file secrets.yaml
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  ssl_certificate: /etc/letsencrypt/live/tormodwien.org/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/tormodwien.org/privkey.pem 
-  base_url: tormodwien.org
+  ssl_certificate: !secret ssl_certificate 
+  ssl_key: !secret ssl_key
+  base_url: !secret base_url
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -57,12 +57,19 @@ logbook:
 # Enables a map showing the location of tracked devices
 map:
 
+recorder:
+  purge_keep_days: 7 
+
 # Track the sun
 sun:
 
-# Weather prediction
 sensor:
+
+# Weather prediction
   - platform: yr
+
+# wi-fi  
+  - platform: google_wifi
 
 # Text to speech
 tts:
@@ -71,6 +78,7 @@ tts:
 # zwave
 zwave:
   usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key 
 
 # Cloud
 cloud:
@@ -148,19 +156,25 @@ google_assistant:
 
 
 mqtt:
-  broker: 192.168.86.169
+  broker: !secret mqtt_broker_ip 
 
 media_player:
   - platform: denon
-    host: 192.168.86.187
+    host: !secret media_player1_ip
 
   - platform: samsungtv
-    host: 192.168.86.176
+    host: !secret samsungtv_ip
     name: Samsung TV TV-stuen
 
   - platform: cast
 
   - platform: plex
 
-sensor:
-  - platform: google_wifi
+# sensor:
+#  - platform: google_wifi
+
+bmw_connected_drive:
+   name:
+      username: !secret bmw_username
+      password: !secret bmw_password
+      region: rest_of_world
