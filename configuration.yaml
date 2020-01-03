@@ -1,11 +1,11 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: Home
+  name: Hjem
   # Location required to calculate the time the sun rises and sets
   latitude: !secret latitude 
   longitude: !secret longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 6
+  elevation: 100 
   # metric for Metric, imperial for Imperial
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -14,24 +14,30 @@ homeassistant:
   customize: !include customize.yaml
 
 # log everything
-# logger:
+logger:
+  default: info 
 
 # Show links to resources in log and frontend
-introduction:
+# introduction:
 
 # Enables the frontend
 frontend:
 
+#Enable mobile app
+mobile_app:
+
 # Enables configuration UI
 config:
 
-http:
+#http:
   # Secrets are defined in the file secrets.yaml
-  api_password: !secret http_password
+  #api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  ssl_certificate: !secret ssl_certificate 
-  ssl_key: !secret ssl_key
-  base_url: !secret base_url
+  #ssl_certificate: !secret ssl_certificate 
+  #ssl_key: !secret ssl_key
+  #base_url: !secret base_url
+  #use_x_forwarded_for: true
+  #trusted_proxies: 192.168.86.30
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -73,15 +79,34 @@ sensor:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 # zwave
 zwave:
   usb_path: /dev/ttyACM0
-  network_key: !secret zwave_network_key 
+  network_key: !secret zwave_network_key
+  device_config:
+    light.aeon_labs_zw111_nano_dimmer_level:
+      polling_intensity: 1
+      refresh_value: true
+    light.aeon_labs_zw099_smart_dimmer_6_level:
+      polling_intensity: 1
+      refresh_value: true
+    light.aeon_labs_zw099_smart_dimmer_6_level3:
+      polling_intensity: 1
+      refresh_value: true
+
 
 # Cloud
 cloud:
+ google_actions:
+   filter:
+     include_domains:
+       - light
+
+mqtt:
+  broker: !secret mqtt_broker_ip
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -92,7 +117,7 @@ light:
     name: "Kitchen"
 #    state_topic: "xcomfort/0/get/switch"
     command_topic: "xcomfort/1/set/switch"
-#    brightness_state_topic: 'xcomfort/1/get/dimmer'
+    brightness_state_topic: 'xcomfort/1/get/dimmer'
     brightness_command_topic: 'xcomfort/1/set/dimmer'
     brightness_scale: 100
     qos: 0 
@@ -137,44 +162,75 @@ light:
       - id: a2
         name: Soverom 
 
-      - id: a3
-        name: TV-stue
-
       - id: a4
         name: Gang
   
-google_assistant:
-  project_id: tormods-home-control 
-  client_id: !secret client_id 
-  access_token: !secret access_token 
-  agent_user_id: tormodwien@gmail.com 
-  api_key: !secret api_key 
-  exposed_domains:
-    - switch
-    - light
-    - group
+#google_assistant:
+#  project_id: tormods-home-control 
+#  client_id: !secret client_id 
+#  access_token: !secret access_token 
+#  agent_user_id: tormodwien@gmail.com 
+#  api_key: !secret api_key 
+#  exposed_domains:
+#    - switch
+#    - light
+#    - group
 
 
-mqtt:
-  broker: !secret mqtt_broker_ip 
 
 media_player:
-  - platform: denon
-    host: !secret media_player1_ip
+#  - platform: denonavr
+#    host: !secret media_player1_ip
+#    name: Surround receiver
+#    show_all_sources: False
 
-  - platform: samsungtv
-    host: !secret samsungtv_ip
-    name: Samsung TV TV-stuen
-
-  - platform: cast
+#  - platform: samsungtv
+#    host: !secret samsungtv_ip
+#    name: Samsung TV TV-stuen
 
   - platform: plex
+
+cast:
+  media_player:
+    - host: 192.168.86.20
+
 
 # sensor:
 #  - platform: google_wifi
 
-bmw_connected_drive:
-   name:
-      username: !secret bmw_username
-      password: !secret bmw_password
-      region: rest_of_world
+#bmw_connected_drive:
+#  name: 
+#    username: !secret bmw_username 
+#    password: !secret bmw__password 
+#    region: rest_of_world
+
+# camera:
+#  - platform: generic
+#    still_image_url: http://192.168.86.26:8554/.
+#    stream_source: rtsp://192.168.86.26:8554/.
+
+#ffmpeg:
+#  ffmpeg_bin: /usr/local/bin/ffmpeg
+
+# stream:
+
+#################################
+## Doorbell ##         
+#################################
+
+ring:
+    username: !secret ring_username
+    password: !secret ring_password
+
+binary_sensor:
+  - platform: ring
+    monitored_conditions:
+      - ding
+      - motion
+
+camera:
+  - platform: ring
+    ffmpeg_arguments: -pred 1 -q:v 2
+
+# lovelace:   
+#    mode: yaml

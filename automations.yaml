@@ -6,7 +6,7 @@
       - platform: event
         event_type: zwave.scene_activated
         event_data:
-          entity_id: zwave.aeotec_dsa03202_minimote
+          entity_id: zwave.aeon_labs_dsa03202_minimote
           scene_id: 1
     action:
       - service: light.turn_on
@@ -23,7 +23,7 @@
       - platform: event
         event_type: zwave.scene_activated
         event_data:
-          entity_id: zwave.aeotec_dsa03202_minimote
+          entity_id: zwave.aeon_labs_dsa03202_minimote
           scene_id: 2
     action:
       - service: light.turn_off
@@ -39,7 +39,7 @@
       - platform: event
         event_type: zwave.scene_activated
         event_data:
-          entity_id: zwave.aeotec_dsa03202_minimote
+          entity_id: zwave.aeon_labs_dsa03202_minimote
           scene_id: 3
     action:
       - service: light.turn_on
@@ -56,7 +56,7 @@
       - platform: event
         event_type: zwave.scene_activated
         event_data:
-          entity_id: zwave.aeotec_dsa03202_minimote
+          entity_id: zwave.aeon_labs_dsa03202_minimote
           scene_id: 4
     action:
       - service: light.turn_off
@@ -73,7 +73,7 @@
       - platform: event
         event_type: zwave.scene_activated
         event_data:
-          entity_id: zwave.aeotec_dsa03202_minimote
+          entity_id: zwave.aeon_labs_dsa03202_minimote
           scene_id: 5
     action:
       - service: light.turn_on
@@ -90,7 +90,7 @@
       - platform: event
         event_type: zwave.scene_activated
         event_data:
-          entity_id: zwave.aeotec_dsa03202_minimote
+          entity_id: zwave.aeon_labs_dsa03202_minimote
           scene_id: 6
     action:
       - service: light.turn_off
@@ -106,7 +106,7 @@
       - platform: event
         event_type: zwave.scene_activated
         event_data:
-          entity_id: zwave.aeotec_dsa03202_minimote
+          entity_id: zwave.aeon_labs_dsa03202_minimote
           scene_id: 7
     action:
       - service: light.turn_on
@@ -115,7 +115,7 @@
             - light.kitchen
             - light.workbench
             - light.living_room
-          brightness: 240
+          brightness: 128 
           transition: 1
 
   - id: minimote_4_button_lp 
@@ -126,7 +126,7 @@
       - platform: event
         event_type: zwave.scene_activated
         event_data:
-          entity_id: zwave.aeotec_dsa03202_minimote
+          entity_id: zwave.aeon_labs_dsa03202_minimote
           scene_id: 8
     action:
       - service: light.turn_off
@@ -136,5 +136,42 @@
             - light.workbench
             - light.living_room
           transition: 1
+
+
+  - id: wallmote_1_button 
+    alias: 'Wallmot Button 1 Pressed'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeon_labs_zw130_wallmote_quad
+          scene_id: 1
+          scene_data: 0
+    action:
+      - service: light.turn_on 
+        data: 
+          entity_id: 
+            - light.aeon_labs_zw111_nano_dimmer_level
+          brightness: 240
+
+  - id: wallmote_2_button   
+    alias: 'Wallmot Button 2 Pressed'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeon_labs_zw130_wallmote_quad
+          scene_id: 2
+          scene_data: 0
+    action:
+      - service: light.turn_off 
+        data:
+          entity_id:
+            - light.aeon_labs_zw111_nano_dimmer_level
+
 
 
